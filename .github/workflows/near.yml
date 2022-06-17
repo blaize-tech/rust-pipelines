@@ -25,12 +25,7 @@ jobs:
       with:
           toolchain: stable
           target: wasm32-unknown-unknown
-          #components: rustfmt, clippy
       
     - run: ./build.sh
-    #- name: Cargo build
-     # run: cargo build
-      
-    #- name: Run tests
-     # run: cargo test
+    - run: ./test.sh
     
