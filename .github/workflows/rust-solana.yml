@@ -21,6 +21,10 @@ jobs:
     - name: Clippy
       run: cargo clippy -- -A clippy::too-many-arguments -D warnings          
           
+    - uses: actions-rs/toolchain@v1
+      with:
+          toolchain: stable      
+          
     - name: Main build
       run: cargo build-bpf
       
