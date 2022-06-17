@@ -21,5 +21,7 @@ jobs:
     - name: Clippy
       run: cargo clippy -- -A clippy::too-many-arguments -D warnings          
           
-    - run: ./build.sh
+    - name: Main build
+      run: cargo build-bpf
+      
     - run: ./test.sh
