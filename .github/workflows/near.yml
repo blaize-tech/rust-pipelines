@@ -14,13 +14,16 @@ jobs:
     # Linter checks first
     steps:
     - uses: actions/checkout@v3
-    - name: Test clippy
+    
+    - name: Clippy
       run: cargo clippy -- -A clippy::too-many-arguments -D warnings
-    - name: Test fmt
+      
+    - name: Formatting
       run: cargo fmt --all -- --check
-    - uses: actions/checkout@v3
+      
     - name: Cargo build
       run: cargo build
+      
     - name: Run tests
       run: cargo test
     
