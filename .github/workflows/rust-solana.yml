@@ -1,0 +1,25 @@
+name: Solana workflow
+
+on:
+ workflow_call:
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  Build:
+
+    runs-on: ubuntu-latest
+
+    # Linter checks first
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Clippy
+      run: cargo clippy -- -A clippy::too-many-arguments -D warnings
+      
+    - name: Formatting
+      run: cargo fmt --all -- --check
+          
+    - run: ./build.sh
+    - run: ./test.sh
