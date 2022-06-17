@@ -37,5 +37,6 @@ jobs:
        - name: Update source
          run: source ~/.bash_profile
           
-       - name: Main build
-         run: cargo build-bpf
+       #- name: Main build
+       - run: source ~/.bash_profile
+       - run: cargo build-bpf
