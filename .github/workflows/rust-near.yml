@@ -1,4 +1,4 @@
-name: Rust
+name: Near workflow
 
 on:
  workflow_call:
