@@ -21,9 +21,16 @@ jobs:
     - name: Formatting
       run: cargo fmt --all -- --check
       
-    - name: Cargo build
-      run: cargo build
+    - uses: actions-rs/toolchain@v1
+      with:
+          toolchain: stable
+          target: wasm32-unknown-unknown
+          #components: rustfmt, clippy
       
-    - name: Run tests
-      run: cargo test
+    - run: ./build.sh
+    #- name: Cargo build
+     # run: cargo build
+      
+    #- name: Run tests
+     # run: cargo test
     
