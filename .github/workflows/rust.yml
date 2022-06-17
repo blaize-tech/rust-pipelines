@@ -11,12 +11,8 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    # Linter checks first
     steps:
-    - uses: actions/checkout@v3
-    - name: Cargo build
-      run: cargo build
-    - name: Run tests
-      run: cargo test
     - uses: actions-rs/cargo@v1
       with:
           command: fmt
@@ -25,4 +21,11 @@ jobs:
       with:
           command: clippy
           args: -- -A clippy::too-many-arguments -D warnings
+
+    - uses: actions/checkout@v3
+    - name: Cargo build
+      run: cargo build
+    - name: Run tests
+      run: cargo test
+    
  
