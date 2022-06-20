@@ -39,7 +39,7 @@ jobs:
          run: sh -c "$(curl -sSfL https://release.solana.com/v1.10.25/install)"
          
        - name: Update source
-         run: source ~/.bash_profile
+         run: source ~/.bash_profile && export PATH="/home/runner/.local/share/solana/install/active_release/bin:$PATH"
           
        - name: Main Build
          run: cargo build-bpf
