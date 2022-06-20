@@ -11,17 +11,22 @@ jobs:
 
     runs-on: ubuntu-latest
     container: projectserum/build:v0.24.2
-
-    # Linter checks first
+   
     steps:
     - uses: actions/checkout@v3
     
-    - name: List rustup toolchains
-      run: rustup toolchain list
+    - name: Formatting
+      run: cargo fmt --all -- --check
+    
+    - name: Clippy
+      run: cargo clippy -- -A clippy::too-many-arguments -D warnings    
+      
     - name: Set default toolchain
       run: rustup default stable
-    - name: Look into folder
-      run: ls -lha
-    - name: Build itself
+      
+    - name: Build BPF
       run: cargo build-bpf
+      
+    - name: Tests
+      run: cargo test
       
