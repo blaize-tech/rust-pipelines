@@ -10,36 +10,16 @@ jobs:
   Linter:
 
     runs-on: ubuntu-latest
+    container: projectserum/build:v0.24.2
 
     # Linter checks first
     steps:
     - uses: actions/checkout@v3
     
-    - name: Formatting
-      run: cargo fmt --all -- --check
-    
-    - name: Clippy
-      run: cargo clippy -- -A clippy::too-many-arguments -D warnings                                       
+    - name: List rustup toolchains
+      run: rustup toolchain list
+    - name: Look into folder
+      run: ls -lha
+    - name: Build itself
+      run: cargo build-bpf
       
-    - run: ./test.sh
-    
-  Build:
-  
-    runs-on: ubuntu-latest
-      
-    steps:
-       #- name: Set default toolchain
-         #run: rustup default stable
-         
-       - uses: actions/checkout@v3
-       
-       - run: ls -lha
-         
-       - name: Install Solana deps  
-         run: sh -c "$(curl -sSfL https://release.solana.com/v1.10.25/install)"
-         
-       - name: Update source
-         run: source ~/.bash_profile && export PATH="/home/runner/.local/share/solana/install/active_release/bin:$PATH" && source $HOME/.cargo/env
-          
-       - name: Main Build
-         run: cargo-build-bpf
