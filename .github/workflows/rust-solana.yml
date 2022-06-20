@@ -42,4 +42,4 @@ jobs:
          run: source ~/.bash_profile && export PATH="/home/runner/.local/share/solana/install/active_release/bin:$PATH"
           
        - name: Main Build
-         run: cargo build-bpf
+         run: cargo +bpf build --target bpfel-unknown-unknown --release #cargo build-bpf
