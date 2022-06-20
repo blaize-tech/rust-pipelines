@@ -28,8 +28,12 @@ jobs:
     runs-on: ubuntu-latest
       
     steps:
-       - name: Set default toolchain
-         run: rustup default stable
+       #- name: Set default toolchain
+         #run: rustup default stable
+         
+       - uses: actions/checkout@v3
+       
+       - run: ls -lha
          
        - name: Install Solana deps  
          run: sh -c "$(curl -sSfL https://release.solana.com/v1.10.25/install)"
