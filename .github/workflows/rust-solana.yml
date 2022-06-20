@@ -42,4 +42,4 @@ jobs:
          run: source ~/.bash_profile
           
        - name: Main Build
-         run: ls -lha
+         run: cargo build-bpf
