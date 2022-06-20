@@ -26,6 +26,9 @@ jobs:
           toolchain: stable
           target: wasm32-unknown-unknown
       
-    - run: ./build.sh
-    - run: ./test.sh
+    - name: Build
+      run: ./build.sh
+      
+    - name: Build  
+      run: ./test.sh
     
