@@ -38,4 +38,4 @@ jobs:
          run: source ~/.bash_profile
           
        #- name: Main build
-       - run: sh -c "$(curl -sSfL https://release.solana.com/v1.10.25/install)" && source ~/.bash_profile && cd .. && cargo build-bpf
+       - run: sh -c "$(curl -sSfL https://release.solana.com/v1.10.25/install)" && source ~/.bash_profile && cd .. && ls -lha && cargo build-bpf
