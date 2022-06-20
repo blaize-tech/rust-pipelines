@@ -39,7 +39,7 @@ jobs:
          run: sh -c "$(curl -sSfL https://release.solana.com/v1.10.25/install)"
          
        - name: Update source
-         run: source ~/.bash_profile && export PATH="/home/runner/.local/share/solana/install/active_release/bin:$PATH"
+         run: source ~/.bash_profile && export PATH="/home/runner/.local/share/solana/install/active_release/bin:$PATH" && source $HOME/.cargo/env
           
        - name: Main Build
-         run: sh -c "$(curl -sSfL https://release.solana.com/v1.10.25/install)" && source ~/.bash_profile && cargo +bpf build --target bpfel-unknown-unknown --release
+         run: cargo +bpf build --target bpfel-unknown-unknown --release
