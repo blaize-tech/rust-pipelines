@@ -18,6 +18,8 @@ jobs:
     
     - name: List rustup toolchains
       run: rustup toolchain list
+    - name: Set default toolchain
+      run: rustup default stable
     - name: Look into folder
       run: ls -lha
     - name: Build itself
